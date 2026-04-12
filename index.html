@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>WeatherWise</title>
+        <link href="https://googleapis.com" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <link rel="stylesheet" href="/main.css">
+    </head>
+    <body>
+        <header>
+            <nav class="nav-links">
+                <ul>
+                    <li><h1 class="nav-link">WeatherWise</h1></li>
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#today" class="nav-link">Today</a></li>
+                    <li><a href="#weather" class="nav-link">Weather</a></li>
+                    <li><a href="#notes" class="nav-link">Notes</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main id="home">
+            <div class="home">
+                <div class="primary-text">
+                    <h2>Live anywhere, feel the sky</h2>
+                </div>
+                <hr>
+                <div class="secondary-text">
+                    <p>Real-time weather & clock that travels with you — search any city, get local time, atmosphere & micro-climate insights.</p>
+                </div>
+            </div>
+        </main>
+
+        <section id="today">
+            <div class="today">
+                <div class="today-date">
+                    <div class="primary-text">
+                        <h2>Today</h2>
+                    </div>
+
+                    <div class="date">Date</div>
+                </div>
+
+                <div class="location-time">
+                    <div class="search-location">
+                        <input type="text" class="search-bar" placeholder="Search location (e.g. Suriname, England)"></input>
+                        <button type="submit" class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
+
+                    <div class="location">[Location]</div>
+
+                    <div class="time">Time</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="weather">
+            <div class="weather">
+                <div class="weather-location">
+                    <div class="primary-text">
+                        <h2>Current Weather</h2>
+                    </div>
+
+                    <div class="location"></div>
+                </div>
+
+                <div class="current-weather">
+                    <div class="weather-temperature">
+                        <div class="weather-icon"></div>
+                        <div class="temperature"></div>
+                        <div class="feels">
+                            <p>Feels like</p>
+                        </div>
+                    </div>
+
+                    <div class="extra">
+                        <div class="humidity"></div>
+                        <div class="wind-speed"></div>
+                        <div class="pressure"></div>
+                        <div class="visibility"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer-links">
+            <ul>
+                <li><p class="footer-link">&copy; WeatherWise | All Rights Reserved</p></li>
+                <li><a href="https://github.com/viraitrisha/WeatherWise.git" class="footer-link">
+                    <i class="fab fa-square-github"></i></a>
+                </li>
+            </ul>
+        </footer>
+    </body>
+</html>

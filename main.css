@@ -1,0 +1,154 @@
+:root {
+    /* NORMAL/FAIL SAVE */
+    --gradient: linear-gradient(to bottom, #EEF2F9, #FFFFFF);
+    --background: #E6F0FF;
+    --navfoot: #FFFFFF;
+    --primary: #1E2A3E;
+    --secondary: #4A627A;
+    --accent: #2C7DA0;
+    --hover: #2563EB;
+
+    /* CONSTANT */
+    --search: #C9C9C9;
+    --shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.2);
+    --transition: all 0.3s ease;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--background);
+    color: var(--secondary);
+    transition: background ease 0.5s, color ease 0.3s;
+}
+
+/***************************************/
+/****** NAVIGATION/FOOTER
+/***************************************/
+.nav-links,
+.footer-links {
+    background: var(--navfoot);
+    box-shadow: var(--shadow);
+    padding: 2rem;
+}
+
+.nav-links ul,
+.footer-links ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-links li:first-child,
+.footer-links li:first-child {
+    margin-right: auto;
+}
+
+.nav-link,
+.footer-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: bolder;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.footer-link i {
+    color: var(--primary);
+    font-size: 3rem;
+}
+
+h1.nav-link {
+    font-size: 3rem;
+}
+
+.nav-link:not(h1):hover,
+.footer-link i:hover {
+    color: var(--hover);
+    transition: var(--transition);
+}
+
+/***************************************/
+/****** HOME
+/***************************************/
+.home {
+    padding: 5rem;
+    background: var(--gradient);
+    border-radius: 0 0 5rem 5rem;
+}
+
+.primary-text {
+    color: var(--primary);
+    font-size: 2rem;
+    padding-bottom: 2rem;
+}
+
+hr {
+    padding: 1rem;
+    border: none;
+    border-top: 0.5rem solid var(--accent);
+    width: 10rem;
+}
+
+.secondary-text {
+    font-size: 1.5rem;
+}
+
+/***************************************/
+/****** TODAY
+/***************************************/
+.today {
+    margin: 5rem;
+    background: var(--gradient);
+    border-radius: 5rem;
+    padding: 5rem;
+}
+
+.today-date {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 0.5rem solid var(--accent);
+}
+
+.date {
+    font-size: 1.5rem;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.location-time {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.search-location {
+    width: 100%;
+    background: red;
+}
+
+.search-bar {
+    width: 90%;
+}
+
+.search-location i {
+}
+/***************************************/
+/****** WEATHER
+/***************************************/
+
+/***************************************/
+/****** NOTES
+/***************************************/
