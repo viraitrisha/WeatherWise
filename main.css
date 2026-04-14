@@ -129,13 +129,13 @@ hr {
 }
 
 .location-time {
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr auto auto;
     gap: 2rem;
+    align-items: center;
 }
 
 .search-location {
-    width: 100%;
     background: red;
 }
 
