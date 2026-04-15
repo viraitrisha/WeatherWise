@@ -9,9 +9,19 @@
     --hover: #2563EB;
 
     /* CONSTANT */
-    --search: #C9C9C9;
     --shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.2);
     --transition: all 0.3s ease;
+}
+
+body.morning {
+    /* MORNING */
+    --gradient: linear-gradient(to bottom, #FDE5C8, #FFEAB5);
+    --background: #FEF9E8;
+    --navfoot: #FFF3DF;
+    --primary: #5D3A1A;
+    --secondary: #8B6946;
+    --accent: #F59E0B;
+    --hover: #D97706;
 }
 
 * {
@@ -129,21 +139,76 @@ hr {
 }
 
 .location-time {
-    display: grid;
-    grid-template-columns: 1fr auto auto;
-    gap: 2rem;
+    display: flex;
     align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
 .search-location {
-    background: red;
+    flex: 1;
+    position: relative;
 }
 
 .search-bar {
-    width: 90%;
+    width: 100%;
+    padding: 1rem 1rem 1rem 4rem;
+    border-radius: 5rem;
+    background: var(--background);
+    border: 0.3rem solid var(--accent);
 }
 
-.search-location i {
+.search-bar:hover,
+.search-bar:focus {
+    outline: none;
+    border: 0.3rem solid var(--hover);
+}
+
+.search-btn {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.8rem;
+    color: var(--accent);
+    transition: var(--transition);
+    z-index: 1; 
+}
+
+.search-btn:hover {
+    color: var(--hover);
+}
+
+.location-btn {
+    padding: 1rem;
+    background: var(--background);
+    border: 0.3rem solid var(--accent);
+    color: var(--accent);
+    border-radius: 100%;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.time {
+    padding: 1rem;
+    background: var(--background);
+    border: 0.3rem solid var(--accent);
+    color: var(--accent);
+    border-radius: 5rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.location-btn:hover,
+.time:hover {
+    color: var(--hover);
+    border: 0.3rem solid var(--hover);
 }
 /***************************************/
 /****** WEATHER
