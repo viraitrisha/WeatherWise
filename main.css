@@ -11,6 +11,8 @@
     /* CONSTANT */
     --shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.2);
     --transition: all 0.3s ease;
+    --border-radius-card: 2rem;
+    --border-radius-pill: 5rem;
 }
 
 body.morning {
@@ -22,6 +24,39 @@ body.morning {
     --secondary: #8B6946;
     --accent: #F59E0B;
     --hover: #D97706;
+}
+
+body.day {
+    /* DAY */
+    --gradient: linear-gradient(to bottom, #FDE5C8, #FFEAB5);
+    --background: #FEF9E8;
+    --navfoot: #FFF3DF;
+    --primary: #5D3A1A;
+    --secondary: #8B6946;
+    --accent: #F59E0B;
+    --hover: #D97706;
+}
+
+body.evening {
+    /* EVENING */
+    --gradient: linear-gradient(to bottom, #4A2C3A, #713A4E);
+    --background: #2D1B36;
+    --navfoot: #1E1025;
+    --primary: #FDE8E9;
+    --secondary: #CBA6C3;
+    --accent: #F97316;
+    --hover: #EA580C;
+}
+
+body.night {
+    /* NIGHT */
+    --gradient: linear-gradient(to bottom, #0F172A, #1E293B);
+    --background: #0B132B;
+    --navfoot: #1C2541;
+    --primary: #F8F9FA;
+    --secondary: #B8C7E7;
+    --accent: #5BC0BE;
+    --hover: #3A9E9D;
 }
 
 * {
@@ -116,15 +151,17 @@ hr {
 }
 
 /***************************************/
-/****** TODAY
+/****** MAIN/SECTION
 /***************************************/
-.today {
+.today,
+.weather {
     margin: 5rem;
     background: var(--gradient);
     border-radius: 5rem;
     padding: 5rem;
 }
 
+.weather-location,
 .today-date {
     display: flex;
     justify-content: space-between;
@@ -132,6 +169,7 @@ hr {
     border-bottom: 0.5rem solid var(--accent);
 }
 
+.location,
 .date {
     font-size: 1.5rem;
     color: var(--primary);
@@ -208,12 +246,19 @@ hr {
 .location-btn:hover,
 .time:hover {
     color: var(--hover);
+    background: var(--navfoot);
     border: 0.3rem solid var(--hover);
 }
-/***************************************/
-/****** WEATHER
-/***************************************/
 
-/***************************************/
-/****** NOTES
-/***************************************/
+.humidity,
+.wind-speed,
+.pressure,
+.visibility {
+    display: flex;
+    justify-content: space-between;
+}
+
+.extra-text {
+    display: flex;
+    justify-content: right;
+}

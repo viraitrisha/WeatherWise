@@ -7,6 +7,7 @@
         <link href="https://googleapis.com" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
         <link rel="stylesheet" href="/main.css">
+        <link rel="icon" type="image/x-icon" href="/images/cloud-sun-solid-full.svg">
     </head>
     <body>
         <header>
@@ -65,24 +66,88 @@
                         <h2>Current Weather</h2>
                     </div>
 
-                    <div class="location"></div>
+                    <div class="location">[Location]</div>
                 </div>
 
                 <div class="current-weather">
                     <div class="weather-temperature">
-                        <div class="weather-icon"></div>
-                        <div class="temperature"></div>
+                        <div class="weather-icon">
+                            <i class="fas fa-cloud-rain"></i>
+                        </div>
+                        <div class="temperature">Temperature</div>
                         <div class="feels">
                             <p>Feels like</p>
                         </div>
                     </div>
 
                     <div class="extra">
-                        <div class="humidity"></div>
-                        <div class="wind-speed"></div>
-                        <div class="pressure"></div>
-                        <div class="visibility"></div>
+                        <div class="humidity">
+                            <i class="fas fa-water"></i>
+                            <div class="extra-text">
+                                <p class="humid">75%</p>
+                                <h3>Humidity</h3>
+                            </div>
+                        </div>
+
+                        <div class="wind-speed">
+                            <i class="fas fa-wind"></i>
+                            <div class="extra-text">
+                                <p class="wind">4 km/h</p>
+                                <h3>Wind Speed</h3>
+                            </div>
+                        </div>
+
+                        <div class="pressure">
+                            <i class="fa-solid fa-chart-column"></i>
+                            <div class="extra-text">
+                                <p class="press">1011hPa</p>
+                                <h3>Pressure</h3>
+                            </div>
+                        </div>
+
+                        <div class="visibility">
+                            <i class="fa-solid fa-eye"></i>
+                            <div class="extra-text">
+                                <p class="visible">10.0 km</p>
+                                <h3>Visibility</h3>
+                            </div>
+                        </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="notes">
+            <div class="notes-grid">
+                <div class="note-card">
+                    <i class="fas fa-umbrella"></i>
+                    <h4>Microclimate tip</h4>
+                    <p>Coastal cities often have higher humidity. Our live data helps you plan beach days or pack a light jacket.</p>
+                </div>
+                <div class="note-card">
+                    <i class="fas fa-sun"></i>
+                    <h4>UV & solar index</h4>
+                    <p>High UV? Protect your skin. We'll soon integrate UV index — meanwhile, stay shaded between 11am - 3pm.</p>
+                </div>
+                <div class="note-card">
+                    <i class="fas fa-wind"></i>
+                    <h4>Wind chill factor</h4>
+                    <p>Strong winds can make 10°C feel like 5°C. Layer up and keep cozy with real-time wind readings.</p>
+                </div>
+                <div class="note-card">
+                    <i class="fas fa-clock"></i>
+                    <h4>Local time magic</h4>
+                    <p>Clock adapts automatically — morning mist, golden hour gradients change with city's time. Experience the vibe.</p>
+                </div>
+                <div class="note-card">
+                    <i class="fas fa-mountain-sun"></i>
+                    <h4>Altitude awareness</h4>
+                    <p>Higher elevation = cooler temps & lower pressure. Check pressure trends for headaches prevention.</p>
+                </div>
+                <div class="note-card">
+                    <i class="fas fa-cloud-rain"></i>
+                    <h4>Real-time radar</h4>
+                    <p>Rain incoming? Keep an umbrella handy. Live updates from global sensors.</p>
                 </div>
             </div>
         </section>
@@ -95,5 +160,7 @@
                 </li>
             </ul>
         </footer>
+
+        <script src="/app.js"></script>
     </body>
 </html>
