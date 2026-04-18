@@ -63,12 +63,9 @@ body.night {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-}
-
-html {
-    font-size: 62.5%;
     scroll-behavior: smooth;
 }
+
 
 body {
     font-family: 'Inter', sans-serif;
@@ -231,7 +228,7 @@ hr {
 }
 
 .location-btn {
-    padding: 1rem;
+    padding: 0.5rem;
     background: var(--background);
     border: 0.3rem solid var(--accent);
     color: var(--accent);
@@ -242,7 +239,7 @@ hr {
 }
 
 .time {
-    padding: 1rem;
+    padding: 0.5rem;
     background: var(--background);
     border: 0.3rem solid var(--accent);
     color: var(--accent);
@@ -342,7 +339,7 @@ hr {
 .wind,
 .press,
 .visible {
-    width: 7rem;
+    width: 10rem;
     text-align: center;
     margin: 0;
     font-size: 1.5rem;   
@@ -366,8 +363,26 @@ hr {
 
 .note-card {
     background: var(--gradient);
+    box-shadow: var(--shadow);
     flex: 0 0 auto;
+    text-align: center;
     padding: 5rem;
+    border-radius: 5rem;
     width: 30rem;
     font-size: 1.5rem;
+}
+
+.note-card i {
+    display: flex;
+    justify-content: center;
+    font-size: 5rem;
+    color: var(--hover);
+}
+
+.note-card h4 {
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+    padding: 0.5rem;
+    color: var(--accent);
 }
