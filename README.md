@@ -1,6 +1,3 @@
-Here's a complete README.md for your **WeatherWise** web application, using proper Markdown formatting including headers, code blocks, inline code, and lists.
-
-```markdown
 # WeatherWise
 
 **Live anywhere, feel the sky** – a real‑time weather dashboard that travels with you. Get current conditions, local time, and micro‑climate insights for any city in the world.
