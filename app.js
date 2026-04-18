@@ -275,3 +275,54 @@ function initApp() {
 
 // Start the app
 initApp();
+
+
+
+
+
+
+
+
+////-----------------------------
+// AUTO SCROLLGRID
+////-----------------------------
+(function autoScrollGrid() {
+    const container = document.querySelector('.notes-grid');
+    if (!container) return;
+
+    let scrollAmount = 0;
+    const step = 1.2;
+
+    let direction = 1;
+    let scrollInterval;
+
+    function scroll() {
+        if (!container) return;
+
+        scrollAmount += step * direction;
+        container.scrollLeft = scrollAmount;
+
+        const maxScroll = container.scrollWidth - container.clientWidth;
+        if (scrollAmount >= maxScroll) {
+            direction = -1;
+            scrollAmount = maxScroll;
+        } else if (scrollAmount <= 0) {
+            direction = 1;
+            scrollAmount = 0;
+        }
+    }
+
+    function startScrolling() {
+        if (scrollInterval) clearInterval(scrollInterval);
+        scrollInterval = setInterval(scroll, 30);
+    }
+
+    function stopScrolling() {
+        clearInterval(scrollInterval);
+    }
+
+    startScrolling();
+
+    container.addEventListener('mouseenter', stopScrolling);
+    container.addEventListener('mouseenter', startScrolling);
+})();
