@@ -1,6 +1,6 @@
-const apiKey = "bd6c98a02a3b7b02d5683bbd8493c74d";
-const geoUrl = "https://api.openweathermap.org/geo/1.0/direct";
-const weatherUrl = "https://api.openweathermap.org/data/2.5/weather";
+const apiKey = CONFIG.apiKey;
+const geoUrl = CONFIG.geoUrl;
+const weatherUrl = CONFIG.weatherUrl;
 
 // ----- DOM Elements (matching your HTML) -----
 const searchInput = document.querySelector(".search-bar");
