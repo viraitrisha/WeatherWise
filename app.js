@@ -2,7 +2,6 @@ const apiKey = CONFIG.apiKey;
 const geoUrl = CONFIG.geoUrl;
 const weatherUrl = CONFIG.weatherUrl;
 
-// ----- DOM Elements (matching your HTML) -----
 const searchInput = document.querySelector(".search-bar");
 const searchBtn = document.querySelector(".search-btn");
 const locationBtn = document.querySelector(".location-btn");
@@ -16,13 +15,12 @@ const visibilityEl = document.querySelector(".visible");
 const weatherIconElement = document.querySelector(".weather-icon i");
 const dateEl = document.querySelector(".date");
 const clockEl = document.querySelector(".time");
+const scrollTopBtn = document.getElementById("scrollTopBtn");
 
-// ----- State -----
-let currentTimezoneOffset = 0;      // seconds from UTC
+let currentTimezoneOffset = 0;
 let clockInterval = null;
 let currentWeatherData = null;
 
-// ----- Helper: Format local time (HH:MM:SS AM/PM) -----
 function formatLocalTime(timestamp, offsetSeconds, format = "time") {
     const utcDate = new Date(timestamp * 1000);
     const localTime = new Date(utcDate.getTime() + offsetSeconds * 1000);
@@ -38,10 +36,8 @@ function formatLocalTime(timestamp, offsetSeconds, format = "time") {
         const month = localTime.getUTCMonth();
         const day = localTime.getUTCDate();
         const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-        // Get day of week
         const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         const weekday = days[localTime.getUTCDay()];
-        // Ordinal suffix
         const suffix = (day) => {
             if (day > 3 && day < 21) return "th";
             switch (day % 10) {
@@ -56,7 +52,6 @@ function formatLocalTime(timestamp, offsetSeconds, format = "time") {
     return "";
 }
 
-// ----- Update Clock & Date using current timezone offset -----
 function updateClockAndDate() {
     if (currentTimezoneOffset === undefined) return;
     const nowUtc = Math.floor(Date.now() / 1000);
@@ -64,20 +59,15 @@ function updateClockAndDate() {
     const dateStr = formatLocalTime(nowUtc, currentTimezoneOffset, "date");
     if (clockEl) clockEl.innerText = timeStr;
     if (dateEl) dateEl.innerText = dateStr;
-    
-    // Update body theme based on local hour (0-23)
+
     const utcDate = new Date(nowUtc * 1000);
     const localHour = new Date(utcDate.getTime() + currentTimezoneOffset * 1000).getUTCHours();
     setBodyTheme(localHour);
 }
 
-// ----- Set body class for time of day (matches CSS expectations) -----
 function setBodyTheme(hour) {
-    // Remove existing theme classes
     document.body.classList.remove("morning", "day", "evening", "night");
     if (hour >= 5 && hour < 12) {
-        document.body.classList.add("morning");
-        // Also keep your existing "morning" class if needed
         document.body.classList.add("morning");
     } else if (hour >= 12 && hour < 17) {
         document.body.classList.add("day");
@@ -88,15 +78,13 @@ function setBodyTheme(hour) {
     }
 }
 
-// ----- Start/refresh clock ticker -----
 function startClock() {
     if (clockInterval) clearInterval(clockInterval);
     updateClockAndDate();
     clockInterval = setInterval(updateClockAndDate, 1000);
 }
 
-// ----- Map OpenWeatherMap icon code to FontAwesome class -----
-function getWeatherIconClass(iconCode, description) {
+function getWeatherIconClass(iconCode) {
     const iconMap = {
         "01d": "fa-sun",
         "01n": "fa-moon",
@@ -120,51 +108,36 @@ function getWeatherIconClass(iconCode, description) {
     return iconMap[iconCode] || "fa-cloud";
 }
 
-// ----- Update entire UI with weather data -----
 function updateUIWithWeather(data) {
     if (!data) return;
     currentWeatherData = data;
-    
-    // City & country
+
     const city = data.name;
     const country = data.sys?.country ? `, ${data.sys.country}` : "";
     if (cityNameEl) cityNameEl.innerText = city + country;
-    
-    // Temperature
+
     if (temperatureEl) temperatureEl.innerText = `${Math.round(data.main.temp)}°C`;
-    
-    // Feels like
     if (feelsLikeEl) feelsLikeEl.innerText = `Feels like ${Math.round(data.main.feels_like)}°C`;
-    
-    // Humidity
     if (humidityEl) humidityEl.innerText = `${data.main.humidity}%`;
-    
-    // Wind speed (convert m/s to km/h)
+
     const windKmh = (data.wind.speed * 3.6).toFixed(1);
     if (windEl) windEl.innerText = `${windKmh} km/h`;
-    
-    // Pressure
+
     if (pressureEl) pressureEl.innerText = `${data.main.pressure} hPa`;
-    
-    // Visibility
+
     const visibilityKm = (data.visibility / 1000).toFixed(1);
     if (visibilityEl) visibilityEl.innerText = `${visibilityKm} km`;
-    
-    // Weather icon (FontAwesome)
+
     const iconCode = data.weather[0].icon;
-    const faClass = getWeatherIconClass(iconCode, data.weather[0].description);
+    const faClass = getWeatherIconClass(iconCode);
     if (weatherIconElement) {
         weatherIconElement.className = `fas ${faClass}`;
     }
-    
-    // Set timezone offset (seconds from UTC)
+
     currentTimezoneOffset = data.timezone;
-    
-    // Restart clock with new offset
     startClock();
 }
 
-// ----- Show loading indicator (simple text on search button) -----
 function showLoading(show) {
     if (show) {
         searchBtn.disabled = true;
@@ -175,7 +148,6 @@ function showLoading(show) {
     }
 }
 
-// ----- Fetch weather by coordinates -----
 async function fetchWeatherByCoords(lat, lon, cityHint = "") {
     showLoading(true);
     try {
@@ -195,18 +167,16 @@ async function fetchWeatherByCoords(lat, lon, cityHint = "") {
     }
 }
 
-// ----- Fetch weather by city name (geocoding first) -----
+// ----- Fetch weather by city name -----
 async function fetchWeatherByCity(cityName) {
     if (!cityName.trim()) return;
     showLoading(true);
     try {
-        // Geocoding
         const geoResp = await fetch(`${geoUrl}?q=${encodeURIComponent(cityName)}&limit=1&appid=${apiKey}`);
         const geoData = await geoResp.json();
         if (!geoData.length) throw new Error("City not found");
         const { lat, lon, name, country } = geoData[0];
-        
-        // Weather
+
         const weatherResp = await fetch(`${weatherUrl}?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`);
         const weatherData = await weatherResp.json();
         if (!weatherResp.ok) throw new Error("Weather API error");
@@ -222,7 +192,6 @@ async function fetchWeatherByCity(cityName) {
     }
 }
 
-// ----- Get current location via browser geolocation -----
 function getCurrentLocationWeather() {
     if (!navigator.geolocation) {
         alert("Geolocation is not supported by your browser.");
@@ -242,7 +211,10 @@ function getCurrentLocationWeather() {
     );
 }
 
-// ----- Event Listeners -----
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
 if (searchBtn) {
     searchBtn.addEventListener("click", () => {
         const query = searchInput ? searchInput.value.trim() : "";
@@ -260,48 +232,36 @@ if (searchInput) {
 if (locationBtn) {
     locationBtn.addEventListener("click", getCurrentLocationWeather);
 }
+if (scrollTopBtn) {
+    scrollTopBtn.addEventListener("click", scrollToTop);
+}
 
-// ----- Initialize: try geolocation, fallback to a default city (e.g., Paramaribo) -----
 function initApp() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
             (pos) => fetchWeatherByCoords(pos.coords.latitude, pos.coords.longitude, "Current Location"),
-            () => fetchWeatherByCity("Paramaribo")   // fallback
+            () => fetchWeatherByCity("Paramaribo")
         );
     } else {
         fetchWeatherByCity("Paramaribo");
     }
 }
 
-// Start the app
 initApp();
 
-
-
-
-
-
-
-
-////-----------------------------
-// AUTO SCROLLGRID
-////-----------------------------
 (function autoScrollGrid() {
     const container = document.querySelector('.notes-grid');
     if (!container) return;
 
     let scrollAmount = 0;
     const step = 1.2;
-
     let direction = 1;
     let scrollInterval;
 
     function scroll() {
         if (!container) return;
-
         scrollAmount += step * direction;
         container.scrollLeft = scrollAmount;
-
         const maxScroll = container.scrollWidth - container.clientWidth;
         if (scrollAmount >= maxScroll) {
             direction = -1;
@@ -322,7 +282,6 @@ initApp();
     }
 
     startScrolling();
-
     container.addEventListener('mouseenter', stopScrolling);
-    container.addEventListener('mouseenter', startScrolling);
+    container.addEventListener('mouseleave', startScrolling);
 })();

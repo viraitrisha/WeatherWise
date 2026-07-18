@@ -1,0 +1,292 @@
+@media (max-width: 1200px) {
+    .home {
+        padding: 12rem 3rem 4rem 3rem;
+    }
+    .today,
+    .weather {
+        margin: 3rem 2rem;
+        padding: 3rem;
+    }
+    .notes-grid {
+        gap: 1.2rem;
+        padding: 0.5rem;
+    }
+    .note-card {
+        width: 24rem;
+    }
+}
+
+@media (max-width: 992px) {
+    h1.nav-link {
+        font-size: 2.2rem;
+    }
+    .nav-link {
+        font-size: 1.2rem;
+    }
+    .home {
+        padding: 10rem 2rem 3rem 2rem;
+        border-radius: 0 0 3rem 3rem;
+    }
+    .primary-text {
+        font-size: 1.8rem;
+    }
+    .secondary-text {
+        font-size: 1.2rem;
+    }
+    hr {
+        width: 8rem;
+        border-top-width: 0.4rem;
+    }
+    .today,
+    .weather {
+        margin: 2rem 1.5rem;
+        padding: 2rem;
+        border-radius: 3rem;
+    }
+    .current-weather {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+    }
+    .weather-icon {
+        font-size: 10rem;
+    }
+    .temperature {
+        font-size: 3.5rem;
+    }
+    .feels {
+        font-size: 1.8rem;
+    }
+    .extra {
+        width: 100%;
+    }
+    .extra-text {
+        flex-wrap: wrap;
+    }
+    .humid,
+    .wind,
+    .press,
+    .visible {
+        width: auto;
+        min-width: 6rem;
+    }
+    .location-time {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    .time {
+        font-size: 1.5rem;
+        padding: 0.4rem 1rem;
+    }
+    .search-bar {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links ul {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .nav-links li:first-child {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 0.5rem;
+    }
+    h1.nav-link {
+        font-size: 2.5rem;
+    }
+    .nav-link {
+        font-size: 1.1rem;
+    }
+
+    .home {
+        padding: 9rem 1.5rem 2.5rem 1.5rem;
+        border-radius: 0 0 2rem 2rem;
+    }
+    .primary-text {
+        font-size: 1.6rem;
+        padding-bottom: 1rem;
+    }
+    .secondary-text {
+        font-size: 1.1rem;
+    }
+
+    .today,
+    .weather {
+        margin: 1.5rem 1rem;
+        padding: 1.5rem;
+        border-radius: 2rem;
+    }
+    .weather-location,
+    .today-date {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    .location,
+    .date {
+        font-size: 1.2rem;
+    }
+    .weather-icon {
+        font-size: 7rem;
+    }
+    .temperature {
+        font-size: 2.8rem;
+    }
+    .feels {
+        font-size: 1.5rem;
+    }
+    .humidity i,
+    .wind-speed i,
+    .pressure i,
+    .visibility i {
+        font-size: 1.5rem;
+    }
+    .humid,
+    .wind,
+    .press,
+    .visible {
+        font-size: 1rem;
+    }
+
+    .notes-grid {
+        gap: 1rem;
+        margin: 0.5rem;
+    }
+    .note-card {
+        width: 20rem;
+        padding: 2rem 1.5rem;
+        border-radius: 2rem;
+    }
+    .note-card h4 {
+        font-size: 1.5rem;
+    }
+    .note-card p {
+        font-size: 1rem;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    .footer-bottom a {
+        font-size: 1.8rem;
+    }
+    .scroll-top-btn {
+        width: 40px;
+        height: 40px;
+    }
+    .scroll-top-btn .arrow-circle {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    h1.nav-link {
+        font-size: 2rem;
+    }
+    .nav-link {
+        font-size: 1rem;
+    }
+
+    .home {
+        padding: 8rem 1rem 2rem 1rem;
+        text-align: center;
+    }
+    .primary-text h2 {
+        font-size: 1.8rem;
+    }
+    .secondary-text p {
+        font-size: 1rem;
+    }
+    hr {
+        margin: 1rem auto;
+        width: 6rem;
+    }
+
+    .today,
+    .weather {
+        margin: 1rem 0.5rem;
+        padding: 1rem;
+    }
+    .location-time {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .search-location {
+        order: -1;
+    }
+    .search-bar {
+        font-size: 0.9rem;
+        padding: 0.8rem 0.8rem 0.8rem 3.5rem;
+    }
+    .location {
+        display: flex;
+        justify-content: center;
+    }
+    .time {
+        text-align: center;
+    }
+    .weather-temperature {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .weather-icon {
+        grid-row: auto;
+        font-size: 6rem;
+        margin-bottom: 0.5rem;
+    }
+    .temperature {
+        grid-column: 1;
+        font-size: 2.5rem;
+    }
+    .feels {
+        grid-column: 1;
+        font-size: 1.3rem;
+    }
+    .extra {
+        gap: 0.8rem;
+    }
+    .extra-text h3 {
+        font-size: 0.9rem;
+    }
+    .notes-grid {
+        margin: 0 0.5rem;
+    }
+    .note-card {
+        width: 16rem;
+        padding: 1.5rem;
+    }
+    .note-card i {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-links ul {
+        gap: 0.5rem;
+    }
+    .home {
+        padding: 7rem 0.8rem 1.5rem 0.8rem;
+    }
+    .primary-text h2 {
+        font-size: 1.6rem;
+    }
+    .weather-location .primary-text h2,
+    .today-date .primary-text h2 {
+        font-size: 1.4rem;
+    }
+    .current-weather {
+        gap: 1rem;
+    }
+    .note-card {
+        width: 14rem;
+        font-size: 0.9rem;
+    }
+    .note-card h4 {
+        font-size: 1.2rem;
+    }
+}

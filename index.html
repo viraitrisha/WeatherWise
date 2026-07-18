@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>WeatherWise</title>
-        <link href="https://googleapis.com" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-        <link rel="stylesheet" href="/main.css">
-        <link rel="stylesheet" href="/responsive.css">
-        <link rel="icon" type="image/x-icon" href="/images/cloud-sun-solid-full.svg">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+        <link rel="stylesheet" href="/css/main.css" />
+        <link rel="stylesheet" href="/css/responsive.css" />
+        <link rel="icon" type="image/x-icon" href="/images/cloud-sun-solid-full.svg" />
     </head>
     <body>
         <header>
@@ -23,143 +23,145 @@
             </nav>
         </header>
 
-        <main id="home">
-            <div class="home">
-                <div class="primary-text">
-                    <h2>Live anywhere, feel the sky</h2>
+        <main>
+            <section id="home">
+                <div class="home">
+                    <div class="primary-text">
+                        <h2>Live anywhere, feel the sky</h2>
+                    </div>
+                    <hr />
+                    <div class="secondary-text">
+                        <p>Real-time weather & clock that travels with you — search any city, get local time, atmosphere & micro-climate insights.</p>
+                    </div>
                 </div>
-                <hr>
-                <div class="secondary-text">
-                    <p>Real-time weather & clock that travels with you — search any city, get local time, atmosphere & micro-climate insights.</p>
+            </section>
+
+            <section id="today">
+                <div class="today">
+                    <div class="today-date">
+                        <div class="primary-text">
+                            <h2>Today</h2>
+                        </div>
+                        <div class="date">Wednesday, 15th of April 2026</div>
+                    </div>
+
+                    <div class="location-time">
+                        <div class="search-location">
+                            <input type="text" class="search-bar" placeholder="Search location (e.g. Paramaribo, Suriname)" />
+                            <button type="submit" class="search-btn" aria-label="Submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </div>
+
+                        <div class="location">
+                            <button type="button" class="location-btn" aria-label="Location"><i class="fa-solid fa-location-crosshairs"></i></button>
+                        </div>
+
+                        <div class="time">00:00:00 AM</div>
+                    </div>
                 </div>
-            </div>
+            </section>
+
+            <section id="weather">
+                <div class="weather">
+                    <div class="weather-location">
+                        <div class="primary-text">
+                            <h2>Current Weather</h2>
+                        </div>
+                        <div class="location">[Location]</div>
+                    </div>
+
+                    <div class="current-weather">
+                        <div class="weather-temperature">
+                            <div class="weather-icon">
+                                <i class="fas fa-cloud-rain"></i>
+                            </div>
+                            <div class="temperature">Temperature</div>
+                            <div class="feels">
+                                <p>Feels like</p>
+                            </div>
+                        </div>
+
+                        <div class="extra">
+                            <div class="humidity">
+                                <i class="fas fa-water"></i>
+                                <div class="extra-text">
+                                    <p class="humid">75%</p>
+                                    <h3>Humidity</h3>
+                                </div>
+                            </div>
+                            <div class="wind-speed">
+                                <i class="fas fa-wind"></i>
+                                <div class="extra-text">
+                                    <p class="wind">4 km/h</p>
+                                    <h3>Wind Speed</h3>
+                                </div>
+                            </div>
+                            <div class="pressure">
+                                <i class="fa-solid fa-chart-column"></i>
+                                <div class="extra-text">
+                                    <p class="press">1011hPa</p>
+                                    <h3>Pressure</h3>
+                                </div>
+                            </div>
+                            <div class="visibility">
+                                <i class="fa-solid fa-eye"></i>
+                                <div class="extra-text">
+                                    <p class="visible">10.0 km</p>
+                                    <h3>Visibility</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="notes">
+                <div class="notes-grid">
+                    <div class="note-card">
+                        <i class="fas fa-umbrella"></i>
+                        <h4>Microclimate tip</h4>
+                        <p>Coastal cities often have higher humidity. Our live data helps you plan beach days or pack a light jacket.</p>
+                    </div>
+                    <div class="note-card">
+                        <i class="fas fa-sun"></i>
+                        <h4>UV & solar index</h4>
+                        <p>High UV? Protect your skin. We'll soon integrate UV index — meanwhile, stay shaded between 11am - 3pm.</p>
+                    </div>
+                    <div class="note-card">
+                        <i class="fas fa-wind"></i>
+                        <h4>Wind chill factor</h4>
+                        <p>Strong winds can make 10°C feel like 5°C. Layer up and keep cozy with real-time wind readings.</p>
+                    </div>
+                    <div class="note-card">
+                        <i class="fas fa-clock"></i>
+                        <h4>Local time magic</h4>
+                        <p>Clock adapts automatically — morning mist, golden hour gradients change with city's time. Experience the vibe.</p>
+                    </div>
+                    <div class="note-card">
+                        <i class="fas fa-mountain-sun"></i>
+                        <h4>Altitude awareness</h4>
+                        <p>Higher elevation = cooler temps & lower pressure. Check pressure trends for headaches prevention.</p>
+                    </div>
+                    <div class="note-card">
+                        <i class="fas fa-cloud-rain"></i>
+                        <h4>Real-time radar</h4>
+                        <p>Rain incoming? Keep an umbrella handy. Live updates from global sensors.</p>
+                    </div>
+                </div>
+            </section>
         </main>
 
-        <section id="today">
-            <div class="today">
-                <div class="today-date">
-                    <div class="primary-text">
-                        <h2>Today</h2>
-                    </div>
-
-                    <div class="date">Wednesday, 15th of April 2026</div>
-                </div>
-
-                <div class="location-time">
-                    <div class="search-location">
-                        <input type="text" class="search-bar" placeholder="Search location (e.g. Suriname, America)"></input>
-                        <button type="submit" class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
-                    </div>
-
-                    <div class="location">
-                        <button type="button" class="location-btn"><i class="fa-solid fa-location-crosshairs"></i></button>
-                    </div>
-
-                    <div class="time">00:00:00 AM</div>
-                </div>
+        <footer>
+            <div class="footer-top">
+                <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">
+                    <span class="arrow-circle"><i class="fa-solid fa-arrow-up"></i></span>
+                </button>
             </div>
-        </section>
-
-        <section id="weather">
-            <div class="weather">
-                <div class="weather-location">
-                    <div class="primary-text">
-                        <h2>Current Weather</h2>
-                    </div>
-
-                    <div class="location">[Location]</div>
-                </div>
-
-                <div class="current-weather">
-                    <div class="weather-temperature">
-                        <div class="weather-icon">
-                            <i class="fas fa-cloud-rain"></i>
-                        </div>
-                        <div class="temperature">Temperature</div>
-                        <div class="feels">
-                            <p>Feels like</p>
-                        </div>
-                    </div>
-
-                    <div class="extra">
-                        <div class="humidity">
-                            <i class="fas fa-water"></i>
-                            <div class="extra-text">
-                                <p class="humid">75%</p>
-                                <h3>Humidity</h3>
-                            </div>
-                        </div>
-
-                        <div class="wind-speed">
-                            <i class="fas fa-wind"></i>
-                            <div class="extra-text">
-                                <p class="wind">4 km/h</p>
-                                <h3>Wind Speed</h3>
-                            </div>
-                        </div>
-
-                        <div class="pressure">
-                            <i class="fa-solid fa-chart-column"></i>
-                            <div class="extra-text">
-                                <p class="press">1011hPa</p>
-                                <h3>Pressure</h3>
-                            </div>
-                        </div>
-
-                        <div class="visibility">
-                            <i class="fa-solid fa-eye"></i>
-                            <div class="extra-text">
-                                <p class="visible">10.0 km</p>
-                                <h3>Visibility</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Vanshika Trilok. All rights reserved.</p>
+                <a href="https://github.com/viraitrisha" rel="noopener noreferrer" target="_blank" aria-label="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
             </div>
-        </section>
-
-        <section id="notes">
-            <div class="notes-grid">
-                <div class="note-card">
-                    <i class="fas fa-umbrella"></i>
-                    <h4>Microclimate tip</h4>
-                    <p>Coastal cities often have higher humidity. Our live data helps you plan beach days or pack a light jacket.</p>
-                </div>
-                <div class="note-card">
-                    <i class="fas fa-sun"></i>
-                    <h4>UV & solar index</h4>
-                    <p>High UV? Protect your skin. We'll soon integrate UV index — meanwhile, stay shaded between 11am - 3pm.</p>
-                </div>
-                <div class="note-card">
-                    <i class="fas fa-wind"></i>
-                    <h4>Wind chill factor</h4>
-                    <p>Strong winds can make 10°C feel like 5°C. Layer up and keep cozy with real-time wind readings.</p>
-                </div>
-                <div class="note-card">
-                    <i class="fas fa-clock"></i>
-                    <h4>Local time magic</h4>
-                    <p>Clock adapts automatically — morning mist, golden hour gradients change with city's time. Experience the vibe.</p>
-                </div>
-                <div class="note-card">
-                    <i class="fas fa-mountain-sun"></i>
-                    <h4>Altitude awareness</h4>
-                    <p>Higher elevation = cooler temps & lower pressure. Check pressure trends for headaches prevention.</p>
-                </div>
-                <div class="note-card">
-                    <i class="fas fa-cloud-rain"></i>
-                    <h4>Real-time radar</h4>
-                    <p>Rain incoming? Keep an umbrella handy. Live updates from global sensors.</p>
-                </div>
-            </div>
-        </section>
-
-        <footer class="footer-links">
-            <ul>
-                <li><p class="footer-link">&copy; WeatherWise | All Rights Reserved</p></li>
-                <li><a href="https://github.com/viraitrisha/WeatherWise.git" class="footer-link">
-                    <i class="fab fa-square-github"></i></a>
-                </li>
-            </ul>
         </footer>
 
         <script src="/config.js"></script>

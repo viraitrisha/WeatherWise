@@ -1,0 +1,507 @@
+/* ========== ROOT & THEME VARIABLES ========== */
+:root {
+    /* FALLBACK */
+    --gradient: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+    --background: #f0f9ff;
+    --navfoot: rgba(255, 255, 255, 0.85);
+    --card: rgba(255, 255, 255, 0.65);
+    --primary: #0f172a;
+    --secondary: #475569; 
+    --accent: #0284c7;
+    --accent-hover: #0369a1;
+    --cta: #f97316;
+    --cta-hover: #ea580c;
+    --shadow: 0 4px 20px rgba(0,0,0,0.06);
+    --card-shadow: 0 12px 40px rgba(0,0,0,0.12);
+    --btn-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    --transition: all 0.3s ease;
+    --border-radius-card: 2rem;
+    --border-radius-pill: 5rem;
+}
+
+/* ----- MORNING ----- */
+body.morning {
+    --gradient: linear-gradient(135deg, #fde5c8 0%, #ffeab5 100%);
+    --background: #fef9e8;
+    --navfoot: rgba(255, 243, 223, 0.9);
+    --card: rgba(255, 248, 235, 0.75);
+    --primary: #5d3a1a;
+    --secondary: #8b6946;
+    --accent: #f59e0b;
+    --accent-hover: #d97706;
+    --cta: #ea580c;
+    --cta-hover: #c2410c;
+}
+
+/* ----- DAY ----- */
+body.day {
+    --gradient: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+    --background: #e6f7ff;
+    --navfoot: rgba(202, 240, 248, 0.9);
+    --card: rgba(220, 240, 255, 0.7);
+    --primary: #023e8a;
+    --secondary: #0077b6;
+    --accent: #00b4d8;
+    --accent-hover: #0096c7;
+    --cta: #0284c7;
+    --cta-hover: #0369a1;
+}
+
+/* ----- EVENING ----- */
+body.evening {
+    --gradient: linear-gradient(135deg, #4a2c3a 0%, #713a4e 100%);
+    --background: #2d1b36;
+    --navfoot: rgba(30, 16, 37, 0.9);
+    --card: rgba(45, 25, 50, 0.7);
+    --primary: #fde8e9;
+    --secondary: #cba6c3;
+    --accent: #f97316;
+    --accent-hover: #ea580c;
+    --cta: #fb923c;
+    --cta-hover: #f97316;
+}
+
+/* ----- NIGHT ----- */
+body.night {
+    --gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    --background: #0b132b;
+    --navfoot: rgba(28, 37, 65, 0.9);
+    --card: rgba(15, 23, 42, 0.7);
+    --primary: #f8f9fa;
+    --secondary: #b8c7e7;
+    --accent: #5bc0be;
+    --accent-hover: #3a9e9d;
+    --cta: #2dd4bf;
+    --cta-hover: #14b8a6;
+}
+
+/* ========== GLOBAL RESETS ========== */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--background);
+    color: var(--secondary);
+    transition: background 0.5s ease, color 0.3s ease;
+    min-height: 100vh;
+}
+
+/* ========== NAVIGATION ========== */
+.nav-links {
+    background: var(--navfoot);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    box-shadow: var(--shadow);
+    padding: 2rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+.nav-links ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-links li:first-child {
+    margin-right: auto;
+}
+
+.nav-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+h1.nav-link {
+    font-size: 3rem;
+}
+
+.nav-link:not(h1):hover {
+    color: var(--accent-hover);
+    transition: var(--transition);
+}
+
+/* ========== HOME ========== */
+.home {
+    padding: 14rem 5rem 5rem 5rem;
+    background: var(--gradient);
+    border-radius: 0 0 5rem 5rem;
+    box-shadow: var(--card-shadow);
+}
+
+.primary-text {
+    color: var(--primary);
+    font-size: 2rem;
+    padding-bottom: 2rem;
+}
+
+hr {
+    border: none;
+    border-top: 0.5rem solid var(--accent);
+    width: 10rem;
+    margin-bottom: 2rem;
+}
+
+.secondary-text {
+    font-size: 1.5rem;
+}
+
+/* ========== TODAY ========== */
+.today,
+.weather {
+    margin: 5rem;
+    background: var(--card);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    border-radius: 5rem;
+    padding: 5rem;
+    box-shadow: var(--card-shadow);
+}
+
+.weather-location,
+.today-date {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 0.4rem solid var(--accent);
+    padding-bottom: 1rem;
+}
+
+.location,
+.date {
+    font-size: 1.5rem;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.location-time {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.search-location {
+    flex: 1;
+    position: relative;
+}
+
+.search-bar {
+    width: 100%;
+    padding: 1rem 1rem 1rem 4rem;
+    border-radius: var(--border-radius-pill);
+    background: var(--background);
+    color: var(--accent);
+    border: 0.2rem solid var(--accent);
+    font-size: 1.2rem;
+    transition: var(--transition);
+}
+
+.search-bar:focus {
+    outline: none;
+    border-color: var(--accent-hover);
+    box-shadow: 0 0 0 3px rgba(2,132,199,0.2);
+}
+
+.search-btn {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.8rem;
+    color: var(--accent);
+    transition: var(--transition);
+    z-index: 1;
+}
+
+.search-btn:hover {
+    color: var(--accent-hover);
+}
+
+.location-btn {
+    padding: 0.6rem;
+    background: var(--background);
+    border: 0.2rem solid var(--accent);
+    color: var(--accent);
+    border-radius: 50%;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.time {
+    padding: 0.5rem 1rem;
+    background: var(--background);
+    border: 0.2rem solid var(--accent);
+    color: var(--accent);
+    border-radius: var(--border-radius-pill);
+    font-size: 1.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.location-btn:hover,
+.time:hover {
+    color: var(--accent-hover);
+    background: var(--navfoot);
+    border-color: var(--accent-hover);
+    transform: scale(1.05);
+}
+
+/* ========== CURRENT WEATHER LAYOUT ========== */
+.current-weather {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.weather-temperature {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    align-items: center;
+}
+
+.weather-icon {
+    grid-row: 1 / span 5;
+    font-size: 12rem;
+    line-height: 1;
+    color: var(--accent);
+}
+
+.temperature {
+    grid-column: 2;
+    grid-row: 2 / span 2;
+    font-size: 4.5rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.feels {
+    grid-column: 2;
+    grid-row: 4;
+    font-size: 2.2rem;
+    color: var(--accent);
+    margin-top: 0.5rem;
+}
+
+.extra {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.humidity,
+.wind-speed,
+.pressure,
+.visibility {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.3rem;
+}
+
+.humidity i,
+.wind-speed i,
+.pressure i,
+.visibility i {
+    width: 2.5rem;
+    font-size: 2rem;
+    color: var(--accent);
+    transition: var(--transition);
+}
+
+.humidity i:hover,
+.wind-speed i:hover,
+.pressure i:hover,
+.visibility i:hover {
+    color: var(--accent-hover);
+    transform: scale(1.1);
+}
+
+.extra-text {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.extra-text h3 {
+    text-align: right;
+    flex: 1;
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.humid,
+.wind,
+.press,
+.visible {
+    width: 8rem;
+    text-align: center;
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+/* ========== NOTES SCROLLING GRID ========== */
+.notes-grid {
+    margin: 1rem;
+    padding: 1rem;
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}
+
+.notes-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.note-card {
+    background: var(--card);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--card-shadow);
+    flex: 0 0 auto;
+    text-align: center;
+    padding: 3rem 2rem;
+    border-radius: var(--border-radius-card);
+    width: 28rem;
+    font-size: 1.3rem;
+    transition: var(--transition);
+}
+
+.note-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.18);
+}
+
+.note-card i {
+    display: flex;
+    justify-content: center;
+    font-size: 4rem;
+    color: var(--cta);
+    margin-bottom: 1rem;
+}
+
+.note-card h4 {
+    font-size: 1.8rem;
+    margin: 0.5rem 0;
+    color: var(--accent);
+}
+
+/* ========== FOOTER ========== */
+footer {
+    position: relative;
+    background-color: var(--background);
+    color: var(--primary);
+    border-top: 4px solid var(--accent);
+    padding: 0;
+    overflow: hidden;
+    z-index: 0;
+}
+
+footer::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: -10%;
+    width: 120%;
+    height: 100px;
+    background: var(--accent);
+    opacity: 0.08;
+    transform: rotate(-3deg);
+    pointer-events: none;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    position: relative;
+}
+
+.scroll-top-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: var(--cta);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--btn-shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.scroll-top-btn .arrow-circle {
+    font-size: 1.3rem;
+    font-weight: bold;
+    line-height: 1;
+    transition: transform 0.3s;
+}
+
+.scroll-top-btn:hover {
+    background: var(--cta-hover);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    transform: translateY(-2px);
+}
+
+.scroll-top-btn:hover .arrow-circle {
+    animation: arrowBounce 0.6s ease infinite;
+}
+
+@keyframes arrowBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+}
+
+.footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1.2rem 2rem;
+    background: var(--card);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-bottom p {
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.footer-bottom a {
+    color: var(--primary);
+    font-size: 2rem;
+    transition: var(--transition);
+}
+
+.footer-bottom a:hover {
+    color: var(--cta);
+    transform: scale(1.1);
+}
